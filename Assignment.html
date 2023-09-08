@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Buttons</title>
+    <script>
+        function calculateSum() {
+            var num1 = parseFloat(prompt("Enter the first number:"));
+    var num2 = parseFloat(prompt("Enter the second number:"));
+    var sum = num1 + num2;
+    alert("Sum: " + sum);
+        }
+
+        function calculateMultiplication() {
+           var num1 = parseFloat(prompt("Enter the first number:"));
+    var num2 = parseFloat(prompt("Enter the second number:"));
+    var product = num1 * num2;
+    alert("Multiplication: " + product);
+        }
+
+        function calculateDivision() {
+            var num1 = parseFloat(prompt("Enter the numerator:"));
+    var num2 = parseFloat(prompt("Enter the denominator:"));
+    
+    if (num2 === 0) {
+        alert("Division by zero is not allowed.");
+    } else {
+        var result = num1 / num2;
+        alert("Division: " + result);
+    }
+        }
+
+        function checkPrime() {
+           var num = parseInt(prompt("Enter a number:"));
+    var isPrime = true;
+    
+    if (num <= 1) {
+        isPrime = false;
+    } else {
+        for (var i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    
+    if (isPrime) {
+        alert(num + " is a prime number.");
+    } else {
+        alert(num + " is not a prime number.");
+    }
+        }
+
+        function calculateFactorial() {
+            var num = parseInt(prompt("Enter a number:"));
+    var factorial = 1;
+    
+    if (num < 0) {
+        alert("Factorial is not defined for negative numbers.");
+    } else {
+        for (var i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        alert("Factorial of " + num + " is: " + factorial);
+    }
+        }
+
+        function checkArmstrong() {
+           var num = parseInt(prompt("Enter a number:"));
+    var originalNum = num;
+    var sum = 0;
+    
+    while (num > 0) {
+        var digit = num % 10;
+        sum += Math.pow(digit, 3); // For Armstrong number, use 3 instead of 3 for cube
+        num = Math.floor(num / 10);
+    }
+    
+    if (sum === originalNum) {
+        alert(originalNum + " is an Armstrong number.");
+    } else {
+        alert(originalNum + " is not an Armstrong number.");
+    }
+        }
+
+        function generatePrimeSeries() {
+            var limit = parseInt(prompt("Enter the limit for prime series:"));
+    var primeSeries = [];
+    
+    for (var num = 2; num <= limit; num++) {
+        var isPrime = true;
+        for (var i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            primeSeries.push(num);
+        }
+    }
+    
+    alert("Prime Series up to " + limit + ": " + primeSeries.join(", "));
+}
+
+        }
+
+        function generateFibonacciSeries() {
+            var limit = parseInt(prompt("Enter the limit for Fibonacci series:"));
+    var fibonacciSeries = [0, 1];
+    
+    for (var i = 2; i < limit; i++) {
+        var nextValue = fibonacciSeries[i - 1] + fibonacciSeries[i - 2];
+        if (nextValue > limit) {
+            break;
+        }
+        fibonacciSeries.push(nextValue);
+    }
+    
+    alert("Fibonacci Series up to " + limit + ": " + fibonacciSeries.join(", "));
+        }
+    </script>
+</head>
+<body>
+    <h1>Function Buttons</h1>
+    <button onclick="calculateSum()">Sum</button>
+    <button onclick="calculateMultiplication()">Multiplication</button>
+    <button onclick="calculateDivision()">Division</button>
+    <button onclick="checkPrime()">Check Prime</button>
+    <button onclick="calculateFactorial()">Factorial</button>
+    <button onclick="checkArmstrong()">Check Armstrong</button>
+    <button onclick="generatePrimeSeries()">Generate Prime Series</button>
+    <button onclick="generateFibonacciSeries()">Generate Fibonacci Series</button>
+</body>
+</html>
